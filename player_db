@@ -1,0 +1,106 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.53-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema player_db
+--
+
+CREATE DATABASE IF NOT EXISTS player_db;
+USE player_db;
+
+--
+-- Definition of table `player`
+--
+
+DROP TABLE IF EXISTS `player`;
+CREATE TABLE `player` (
+  `Player_No` int(11) NOT NULL AUTO_INCREMENT,
+  `Player_Name` varchar(20) NOT NULL,
+  `Category` varchar(20) DEFAULT NULL,
+  `HighestScore` int(11) DEFAULT NULL,
+  `BestFigure` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`Player_No`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `player`
+--
+
+/*!40000 ALTER TABLE `player` DISABLE KEYS */;
+INSERT INTO `player` (`Player_No`,`Player_Name`,`Category`,`HighestScore`,`BestFigure`) VALUES 
+ (1,'dhoni','Batsman',75,'50/3'),
+ (2,'sachin','Batsman',80,'30/2'),
+ (3,'goni','Batsman',43,'20/2');
+/*!40000 ALTER TABLE `player` ENABLE KEYS */;
+
+
+--
+-- Definition of table `team`
+--
+
+DROP TABLE IF EXISTS `team`;
+CREATE TABLE `team` (
+  `Team_Id` int(11) NOT NULL DEFAULT '0',
+  `Team_Name` varchar(6) NOT NULL,
+  PRIMARY KEY (`Team_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `team`
+--
+
+/*!40000 ALTER TABLE `team` DISABLE KEYS */;
+INSERT INTO `team` (`Team_Id`,`Team_Name`) VALUES 
+ (1,'CSK'),
+ (2,'RCB'),
+ (3,'MI'),
+ (4,'RR'),
+ (5,'SRH'),
+ (6,'KKR');
+/*!40000 ALTER TABLE `team` ENABLE KEYS */;
+
+
+--
+-- Definition of table `team_player`
+--
+
+DROP TABLE IF EXISTS `team_player`;
+CREATE TABLE `team_player` (
+  `Player_No` int(11) DEFAULT NULL,
+  `Team_Id` int(11) DEFAULT NULL,
+  KEY `Player_No` (`Player_No`),
+  KEY `Team_Id` (`Team_Id`),
+  CONSTRAINT `team_player_ibfk_1` FOREIGN KEY (`Player_No`) REFERENCES `player` (`Player_No`),
+  CONSTRAINT `team_player_ibfk_2` FOREIGN KEY (`Team_Id`) REFERENCES `team` (`Team_Id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `team_player`
+--
+
+/*!40000 ALTER TABLE `team_player` DISABLE KEYS */;
+/*!40000 ALTER TABLE `team_player` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

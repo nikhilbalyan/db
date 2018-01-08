@@ -1,0 +1,164 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.53-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema hibernate
+--
+
+CREATE DATABASE IF NOT EXISTS hibernate;
+USE hibernate;
+
+--
+-- Definition of table `campusmind`
+--
+
+DROP TABLE IF EXISTS `campusmind`;
+CREATE TABLE `campusmind` (
+  `mId` int(11) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `track` varchar(255) DEFAULT NULL,
+  `batchId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mId`),
+  KEY `FK8klvlx0baerybag1qo7dua5tr` (`batchId`),
+  CONSTRAINT `FK8klvlx0baerybag1qo7dua5tr` FOREIGN KEY (`batchId`) REFERENCES `orchard` (`batchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `campusmind`
+--
+
+/*!40000 ALTER TABLE `campusmind` DISABLE KEYS */;
+/*!40000 ALTER TABLE `campusmind` ENABLE KEYS */;
+
+
+--
+-- Definition of table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES 
+ (1),
+ (1);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+
+
+--
+-- Definition of table `orchard`
+--
+
+DROP TABLE IF EXISTS `orchard`;
+CREATE TABLE `orchard` (
+  `batchId` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`batchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `orchard`
+--
+
+/*!40000 ALTER TABLE `orchard` DISABLE KEYS */;
+/*!40000 ALTER TABLE `orchard` ENABLE KEYS */;
+
+
+--
+-- Definition of table `teamlead`
+--
+
+DROP TABLE IF EXISTS `teamlead`;
+CREATE TABLE `teamlead` (
+  `mid` int(11) NOT NULL,
+  `leadName` varchar(255) DEFAULT NULL,
+  `track` varchar(255) DEFAULT NULL,
+  `batchId` int(11) DEFAULT NULL,
+  PRIMARY KEY (`mid`),
+  KEY `FK8av1klhkwosjo4ob7bu3747ti` (`batchId`),
+  CONSTRAINT `FK8av1klhkwosjo4ob7bu3747ti` FOREIGN KEY (`batchId`) REFERENCES `orchard` (`batchId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `teamlead`
+--
+
+/*!40000 ALTER TABLE `teamlead` DISABLE KEYS */;
+/*!40000 ALTER TABLE `teamlead` ENABLE KEYS */;
+
+
+--
+-- Definition of table `userdetail`
+--
+
+DROP TABLE IF EXISTS `userdetail`;
+CREATE TABLE `userdetail` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userdetail`
+--
+
+/*!40000 ALTER TABLE `userdetail` DISABLE KEYS */;
+INSERT INTO `userdetail` (`userId`,`userName`) VALUES 
+ (1,'user 0'),
+ (2,'user 1'),
+ (3,'Updated User hola'),
+ (4,'user 3'),
+ (5,'user 4'),
+ (7,'user 6'),
+ (8,'user 7'),
+ (9,'user 8'),
+ (10,'user 9');
+/*!40000 ALTER TABLE `userdetail` ENABLE KEYS */;
+
+
+--
+-- Definition of table `userdetails`
+--
+
+DROP TABLE IF EXISTS `userdetails`;
+CREATE TABLE `userdetails` (
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `userName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `userdetails`
+--
+
+/*!40000 ALTER TABLE `userdetails` DISABLE KEYS */;
+/*!40000 ALTER TABLE `userdetails` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

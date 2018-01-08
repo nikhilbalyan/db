@@ -1,0 +1,77 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.53-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema one_to_many
+--
+
+CREATE DATABASE IF NOT EXISTS one_to_many;
+USE one_to_many;
+
+--
+-- Definition of table `campusmind`
+--
+
+DROP TABLE IF EXISTS `campusmind`;
+CREATE TABLE `campusmind` (
+  `mId` int(11) NOT NULL,
+  `track` varchar(255) DEFAULT NULL,
+  `userName` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`mId`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `campusmind`
+--
+
+/*!40000 ALTER TABLE `campusmind` DISABLE KEYS */;
+INSERT INTO `campusmind` (`mId`,`track`,`userName`) VALUES 
+ (1,'EAI','Nikhil0'),
+ (2,'EAI','Nikhil1'),
+ (3,'EAI','Nikhil2'),
+ (4,'EAI','Nikhil3'),
+ (5,'EAI','Nikhil4');
+/*!40000 ALTER TABLE `campusmind` ENABLE KEYS */;
+
+
+--
+-- Definition of table `hibernate_sequence`
+--
+
+DROP TABLE IF EXISTS `hibernate_sequence`;
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hibernate_sequence`
+--
+
+/*!40000 ALTER TABLE `hibernate_sequence` DISABLE KEYS */;
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES 
+ (6);
+/*!40000 ALTER TABLE `hibernate_sequence` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
